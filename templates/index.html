@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>LuxeLens - Handbag Brand Predictor</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Open+Sans&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Open Sans', sans-serif;
+      background: linear-gradient(to right, #fefcea, #f1daae);
+      margin: 0;
+      padding: 30px;
+    }
+
+    .container {
+      max-width: 700px;
+      margin: auto;
+      background: #ffffff;
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      text-align: center;
+      color: #5d4037;
+      margin-bottom: 30px;
+    }
+
+    .input-group {
+      margin-bottom: 25px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+      font-size: 16px;
+      color: #6d4c41;
+    }
+
+    select, input[type="range"] {
+      width: 100%;
+      padding: 12px 14px;
+      font-size: 16px;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      background: #fffaf7;
+      font-family: 'Open Sans', sans-serif;
+      box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.05);
+      transition: border-color 0.3s ease;
+    }
+
+    select:focus, input[type="range"]:focus {
+      border-color: #c17a51;
+      outline: none;
+    }
+
+    .range-value {
+      text-align: right;
+      font-size: 14px;
+      color: #8d6e63;
+    }
+
+    button {
+      background-color: #d2691e;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+      cursor: pointer;
+      width: 100%;
+      margin-top: 20px;
+    }
+
+    button:hover {
+      background-color: #c15812;
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 30px;
+      color: #a1887f;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>👜 LuxeLens: Handbag Brand Predictor</h1>
+    <form method="POST" action="/">
+      <div class="input-group">
+        <label for="subcategory">👜 Select Handbag Type</label>
+        <select name="subcategory" id="subcategory" required>
+          <option value="" disabled selected>-- Choose a Subcategory --</option>
+          <option value="Backpack">🎒 Backpack</option>
+          <option value="Clutch">👛 Clutch</option>
+          <option value="Satchel">👜 Satchel</option>
+          <option value="Shoulder Bag">🛍️ Shoulder Bag</option>
+          <option value="Sling Bag">👝 Sling Bag</option>
+          <option value="Tote">👜 Tote</option>
+        </select>
+        
+      </div>
+
+      <div class="input-group">
+        <label for="price">💰 Price (₹)</label>
+        <input type="range" name="price" id="price" min="500" max="3000" step="50" value="1500" oninput="priceValue.innerText = this.value">
+        <div class="range-value">₹ <span id="priceValue">1500</span></div>
+      </div>
+
+      <div class="input-group">
+        <label for="rating">⭐ Rating</label>
+        <input type="range" name="rating" id="rating" min="1" max="5" step="0.1" value="4.0" oninput="ratingValue.innerText = this.value">
+        <div class="range-value"><span id="ratingValue">4.0</span> ⭐</div>
+      </div>
+
+      <button type="submit">🔍 Predict Brand</button>
+    </form>
+
+    <div class="footer">
+      © 2025 LuxeLens · Designed for fashion lovers 💕
+    </div>
+  </div>
+</body>
+</html>
